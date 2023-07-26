@@ -2,7 +2,7 @@ import React, {useState, useContext} from "react";
 import {ADD_TODO} from "../context/action.types";
 import {TodoContext} from "../context/TodoContext";
 import {v4} from "uuid";
-
+import toast from "react-hot-toast";
 const TodoForm = () => {
   const [input, setInput] = useState("");
   const {todos, dispatch} = useContext(TodoContext);
@@ -14,8 +14,9 @@ const TodoForm = () => {
   const handelSubmit = (e) => {
     e.preventDefault();
     if (input === "") {
-      return alert("Field is empty!");
+      return toast.error("Empty Field!");
     }
+
     const todo = {
       input,
       id: v4(),
@@ -27,11 +28,10 @@ const TodoForm = () => {
 
     setInput("");
   };
-
   return (
     <React.Fragment>
       <div className="container">
-        <h1>TODO APPLICATION</h1>
+        <h2>TODO APPLICATION</h2>
         <span>To Get A Record Of What Your Remeber!</span>
 
         <input
@@ -41,12 +41,12 @@ const TodoForm = () => {
           placeholder="Write What Matters!!"
           autoFocus
         />
-        <button onClick={handelSubmit}>Fetch IT</button>
-        <h2 className="todo-heading">
+        <button onClick={handelSubmit}>GO!!</button>
+        <h3 className="todo-heading">
           {todos.length > 0
             ? "Your Todos Length: " + todos.length
-            : "You Dont Have Any Todos"}
-        </h2>
+            : "You don't have any todos"}
+        </h3>
       </div>
     </React.Fragment>
   );

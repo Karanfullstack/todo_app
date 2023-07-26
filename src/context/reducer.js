@@ -1,4 +1,9 @@
-import {ADD_TODO, REMOVE_TODO, THEMES} from "./action.types";
+import {ADD_TODO, REMOVE_TODO} from "./action.types";
+import {useEffect} from "react";
+
+export const useLocalStroage = (key, defaultValue, reducer) => {
+  
+};
 
 const TodoReducer = (state, action) => {
   switch (action.type) {
@@ -6,6 +11,19 @@ const TodoReducer = (state, action) => {
       return [...state, action.payload];
     case REMOVE_TODO:
       return state.filter((item) => item.id !== action.payload);
+    default:
+      return state;
+  }
+};
+
+export const initialState = {
+  theme: "light",
+};
+
+export const ThemeReducer = (state, action) => {
+  switch (action.type) {
+    case "TOOGLE_THEME":
+      return {theme: state.theme === "light" ? "dark" : "light"};
     default:
       return state;
   }
