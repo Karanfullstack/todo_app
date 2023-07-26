@@ -74,11 +74,13 @@ body {
   margin: 10px auto;
   border-radius: 4px;
   animation: zoom-in-zoom-out 0.5s ease-out;
+  transition: transform 250ms;
 }
 
 .todo-list:hover {
   background-color: rgb(235, 241, 247);
   cursor: pointer;
+  transform: translateY(-4px);
 }
 
 .todo-list ul {
@@ -95,6 +97,10 @@ body {
 }
 .icon {
   margin-right: 10px;
+}
+
+.icon:hover {
+  fill: green;
 }
 
 h2 {

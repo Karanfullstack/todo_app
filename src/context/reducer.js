@@ -1,9 +1,6 @@
 import {ADD_TODO, REMOVE_TODO} from "./action.types";
-import {useEffect} from "react";
 
-export const useLocalStroage = (key, defaultValue, reducer) => {
-  
-};
+import {useEffect, useReducer} from "react";
 
 const TodoReducer = (state, action) => {
   switch (action.type) {
