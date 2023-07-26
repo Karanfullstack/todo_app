@@ -10,7 +10,7 @@ export const useLocalStorage = (key, defaultValue, reducer) => {
   // @Updating Vallues AS State Changes
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
+  }, [key, state]); //@key can be optional
 
   return [state, dispatch];
 };

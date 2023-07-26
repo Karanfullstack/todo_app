@@ -1,7 +1,5 @@
 import {ADD_TODO, REMOVE_TODO} from "./action.types";
 
-import {useEffect, useReducer} from "react";
-
 const TodoReducer = (state, action) => {
   switch (action.type) {
     case ADD_TODO:
