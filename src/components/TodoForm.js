@@ -20,6 +20,7 @@ const TodoForm = () => {
     const todo = {
       input,
       id: v4(),
+      isChecked:false
     };
     dispatch({
       type: ADD_TODO,

@@ -97,10 +97,12 @@ body {
 }
 .icon {
   margin-right: 10px;
+  font-size: 25px;
 }
 
 .icon:hover {
   fill: green;
+  
 }
 
 h2 {
@@ -157,6 +159,15 @@ nav {
   top: 10px;
   left: 16px;
   position: fixed;
+  width: 50px;
+  height: 40px;
+  border-radius: 30px;
+
+  transition: transform 250ms;
+}
+
+.right button:hover {
+  transform: translateY(-4px);
 }
 
 .dark {

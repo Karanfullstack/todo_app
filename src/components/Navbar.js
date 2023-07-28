@@ -1,7 +1,8 @@
-import React, {useContext, useEffect, useState} from "react";
-import logo from "../utils/Todoist_logo.png";
+import React, {useContext, useEffect} from "react";
 import {TodoContext} from "../context/TodoContext";
-import {BsFillLightningChargeFill} from "react-icons/bs"
+// import {BsFillLightningChargeFill} from "react-icons/bs";
+import {FiPower} from "react-icons/fi";
+import {FaPowerOff} from "react-icons/fa"
 const Navbar = () => {
   const {themes, themeDispatch} = useContext(TodoContext);
 
@@ -10,7 +11,9 @@ const Navbar = () => {
       type: "TOOGLE_THEME",
     });
   };
+
   const body = document.body;
+
   useEffect(() => {
     if (themes.theme === "light") {
       body.classList.remove("dark");
@@ -19,13 +22,15 @@ const Navbar = () => {
       body.classList.remove("light");
       body.classList.add("dark");
     }
-  }, [themes.theme]);
+  }, [themes]);
 
   return (
     <React.Fragment>
       <nav>
         <div className="right">
-          <button onClick={handelTheme}><BsFillLightningChargeFill/></button>
+          <button onClick={handelTheme}>
+            {themes.theme === "light" ? <FiPower /> : <FaPowerOff />}
+          </button>
         </div>
       </nav>
     </React.Fragment>
